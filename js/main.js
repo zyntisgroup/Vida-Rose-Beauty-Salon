@@ -162,12 +162,27 @@
     });
 
     // Interactive Service Selection Pills
-    servicePills.forEach(pill => {
-      pill.addEventListener('click', () => {
-        servicePills.forEach(p => p.classList.remove('is-selected'));
-        pill.classList.add('is-selected');
+    const updateSelectedPill = () => {
+      servicePills.forEach(pill => {
         const radio = pill.querySelector('input[type="radio"]');
-        if (radio) radio.checked = true;
+        if (radio && radio.checked) {
+          pill.classList.add('is-selected');
+        } else {
+          pill.classList.remove('is-selected');
+        }
+      });
+    };
+
+    servicePills.forEach(pill => {
+      const radio = pill.querySelector('input[type="radio"]');
+      if (radio) {
+        radio.addEventListener('change', updateSelectedPill);
+      }
+      pill.addEventListener('click', () => {
+        if (radio) {
+          radio.checked = true;
+          updateSelectedPill();
+        }
       });
     });
 
@@ -214,6 +229,133 @@
     });
   }
 
+  // 6. Interactive Experience Showcase & Spotlight Sync
+  function initExperienceInteractions() {
+    const section = document.querySelector('.experience-section');
+    if (!section) return;
+
+    const featureItems = section.querySelectorAll('.exp-feature-item');
+    const spotlightTag = section.querySelector('#exp-dynamic-spotlight');
+    const spotlightIcon = section.querySelector('#spotlight-icon');
+    const spotlightText = section.querySelector('#spotlight-text');
+    const mediaContainer = section.querySelector('#experience-media-container');
+    const mediaCard = section.querySelector('#experience-media');
+    const mediaGlare = section.querySelector('.experience-media-glare');
+
+    // Feature highlights data
+    const featureData = {
+      '1': {
+        icon: '✨',
+        i18nKey: 'experience.tag_highlight1',
+        fallbackEn: 'Dedicated 1-on-1 Consultation',
+        fallbackAr: 'جلسة استشارة خاصة ومخصصة'
+      },
+      '2': {
+        icon: '🛡️',
+        i18nKey: 'experience.tag_highlight2',
+        fallbackEn: 'Hospital-Grade Autoclave Sterilization',
+        fallbackAr: 'تعقيم طبي حراري فائق 100%'
+      },
+      '3': {
+        icon: '🌙',
+        i18nKey: 'experience.tag_highlight3',
+        fallbackEn: 'Open Daily Until 11:00 PM',
+        fallbackAr: 'نستقبلكم يومياً حتى 11:00 مساءً'
+      }
+    };
+
+    function setActiveFeature(featureId) {
+      featureItems.forEach(item => {
+        const isCurrent = item.getAttribute('data-feature') === featureId;
+        item.classList.toggle('is-active', isCurrent);
+        item.setAttribute('aria-selected', isCurrent ? 'true' : 'false');
+      });
+
+      if (spotlightTag && featureData[featureId]) {
+        const data = featureData[featureId];
+        const spotlightContent = spotlightTag.querySelector('.spotlight-content');
+
+        if (spotlightContent) {
+          spotlightContent.classList.add('is-animating');
+          setTimeout(() => {
+            if (spotlightIcon) spotlightIcon.textContent = data.icon;
+            if (spotlightText) {
+              spotlightText.setAttribute('data-i18n', data.i18nKey);
+              const lang = document.documentElement.lang || 'en';
+              if (window.i18n) {
+                spotlightText.textContent = window.i18n.get(data.i18nKey);
+              } else {
+                spotlightText.textContent = lang === 'ar' ? data.fallbackAr : data.fallbackEn;
+              }
+            }
+            spotlightContent.classList.remove('is-animating');
+          }, 160);
+        }
+      }
+    }
+
+    featureItems.forEach(item => {
+      const featureId = item.getAttribute('data-feature');
+
+      // Click activation
+      item.addEventListener('click', () => {
+        setActiveFeature(featureId);
+      });
+
+      // Hover activation for seamless polish
+      item.addEventListener('mouseenter', () => {
+        setActiveFeature(featureId);
+      });
+
+      // Keyboard accessibility
+      item.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          setActiveFeature(featureId);
+        }
+      });
+    });
+
+    // 3D Card Tilt on Media Container (Desktop Pointer Only)
+    if (mediaContainer && mediaCard && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      let rafId = null;
+
+      const handleMouseMove = (e) => {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+        const rect = mediaContainer.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = ((y - centerY) / centerY) * -5.5; // Max 5.5 deg
+        const rotateY = ((x - centerX) / centerX) * 5.5;
+
+        if (rafId) cancelAnimationFrame(rafId);
+        rafId = requestAnimationFrame(() => {
+          mediaCard.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale3d(1.015, 1.015, 1.015)`;
+          if (mediaGlare) {
+            const pctX = (x / rect.width) * 100;
+            const pctY = (y / rect.height) * 100;
+            mediaGlare.style.background = `radial-gradient(circle at ${pctX.toFixed(1)}% ${pctY.toFixed(1)}%, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0) 65%)`;
+          }
+        });
+      };
+
+      const handleMouseLeave = () => {
+        if (rafId) cancelAnimationFrame(rafId);
+        mediaCard.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+        if (mediaGlare) {
+          mediaGlare.style.background = '';
+        }
+      };
+
+      mediaContainer.addEventListener('mousemove', handleMouseMove, { passive: true });
+      mediaContainer.addEventListener('mouseleave', handleMouseLeave);
+    }
+  }
+
   // Master Init
   document.addEventListener('DOMContentLoaded', () => {
     initHeaderScroll();
@@ -221,5 +363,7 @@
     initServicesCarousel();
     initConciergeModal();
     initPlusCodeCopy();
+    initExperienceInteractions();
   });
 })();
+

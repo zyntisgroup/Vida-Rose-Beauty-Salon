@@ -16,6 +16,11 @@
   <!-- Favicon / SVG Monogram -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%23120F0E' stroke='%23C59B88' stroke-width='4'/><text x='50%' y='58%' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='42' fill='%23C59B88'>VR</text></svg>">
 
+  <!-- Google Fonts Preconnect & Stylesheets -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=El+Messiri:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
   <!-- Swiper CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
@@ -424,12 +429,38 @@
     <!-- ==========================================================================
          6. SIGNATURE EXPERIENCE SPOTLIGHT
          ========================================================================== -->
-    <section class="experience-section">
+    <section class="experience-section" id="experience">
       <div class="container">
         <div class="experience-grid">
           
-          <div class="experience-media clip-reveal-wrap">
-            <img src="assets/images/lounge-interior.jpg" alt="Vida Rosé Lounge Interior EastHub" class="experience-img">
+          <div class="experience-media-container" id="experience-media-container">
+            <div class="experience-media" id="experience-media">
+              <div class="experience-media-glare" aria-hidden="true"></div>
+              <img src="assets/images/lounge-interior.jpg" alt="Vida Rosé Lounge Interior EastHub" class="experience-img" loading="lazy">
+              
+              <!-- Floating VIP Suite Badge (Top) -->
+              <div class="exp-floating-badge exp-badge-top">
+                <span class="exp-badge-sparkle">✦</span>
+                <span data-i18n="experience.badge_suite">Private VIP Sanctuary</span>
+              </div>
+
+              <!-- Interactive Dynamic Spotlight Tag (Center / Lower-third) -->
+              <div class="exp-dynamic-spotlight" id="exp-dynamic-spotlight" aria-live="polite">
+                <div class="spotlight-content">
+                  <span class="spotlight-icon" id="spotlight-icon">✨</span>
+                  <span class="spotlight-text" id="spotlight-text" data-i18n="experience.tag_highlight1">Dedicated 1-on-1 Consultation</span>
+                </div>
+              </div>
+
+              <!-- Live Status Pill (Bottom) -->
+              <div class="exp-floating-badge exp-badge-bottom">
+                <span class="exp-live-dot"></span>
+                <span data-i18n="experience.badge_status">Welcoming Bookings & Walk-ins</span>
+              </div>
+            </div>
+
+            <!-- Soft ambient background aura -->
+            <div class="experience-media-aura" aria-hidden="true"></div>
           </div>
 
           <div class="experience-content">
@@ -439,33 +470,44 @@
               A calm, thoughtfully appointed space where genuine care, hospital-grade hygiene, and modern refinement come together. Each visit is shaped to offer a moment of pause — quiet, balanced, and entirely your own.
             </p>
 
-            <div class="experience-features-list">
-              <div class="exp-feature-item">
+            <div class="experience-features-list" role="tablist" aria-label="Lounge Experience Features">
+              <div class="exp-feature-item is-active" data-feature="1" role="button" tabindex="0" aria-selected="true">
                 <div class="exp-feature-icon">✨</div>
-                <div>
+                <div class="exp-feature-info">
                   <h4 class="exp-feature-title" data-i18n="experience.feature1_title">Private Consultation</h4>
                   <p class="exp-feature-desc" data-i18n="experience.feature1_desc">Every treatment begins with a dedicated analysis to customize color, lash curl, or nail architecture.</p>
                 </div>
-              </div>
-
-              <div class="exp-feature-item">
-                <div class="exp-feature-icon">🛡️</div>
-                <div>
-                  <h4 class="exp-feature-title" data-i18n="experience.feature2_title">Medical-Grade Hygiene</h4>
-                  <p class="exp-feature-desc" data-i18n="experience.feature2_desc">Hospital-standard autoclave sterilization and single-use premium tools for your complete peace of mind.</p>
+                <div class="exp-feature-arrow" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </div>
               </div>
 
-              <div class="exp-feature-item">
+              <div class="exp-feature-item" data-feature="2" role="button" tabindex="0" aria-selected="false">
+                <div class="exp-feature-icon">🛡️</div>
+                <div class="exp-feature-info">
+                  <h4 class="exp-feature-title" data-i18n="experience.feature2_title">Medical-Grade Hygiene</h4>
+                  <p class="exp-feature-desc" data-i18n="experience.feature2_desc">Hospital-standard autoclave sterilization and single-use premium tools for your complete peace of mind.</p>
+                </div>
+                <div class="exp-feature-arrow" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </div>
+              </div>
+
+              <div class="exp-feature-item" data-feature="3" role="button" tabindex="0" aria-selected="false">
                 <div class="exp-feature-icon">🌙</div>
-                <div>
+                <div class="exp-feature-info">
                   <h4 class="exp-feature-title" data-i18n="experience.feature3_title">Relaxed Evening Hours</h4>
                   <p class="exp-feature-desc" data-i18n="experience.feature3_desc">Open daily until 11:00 PM to accommodate your schedule after work or mall leisure.</p>
+                </div>
+                <div class="exp-feature-arrow" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </div>
               </div>
             </div>
 
-            <a href="#location" class="btn btn-primary" data-i18n="experience.cta">Plan Your Visit</a>
+            <div class="experience-cta-wrap">
+              <a href="#location" class="btn btn-primary js-open-concierge" data-service="Full VIP Lounge Experience" data-i18n="experience.cta">Plan Your Visit</a>
+            </div>
           </div>
 
         </div>
@@ -771,6 +813,11 @@
               <span data-i18n="concierge.service_opt_pedicure">Royal Spa Pedicure</span>
             </label>
 
+            <label class="service-pill-label">
+              <input type="radio" name="service_choice" value="Precision Brow Architecture">
+              <span data-i18n="concierge.service_opt_brows">Precision Brow Architecture</span>
+            </label>
+
             <label class="service-pill-label" style="grid-column: 1 / -1;">
               <input type="radio" name="service_choice" value="Full VIP Lounge Experience">
               <span data-i18n="concierge.service_opt_package">Full VIP Lounge Experience</span>
@@ -795,7 +842,6 @@
   <script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="https://unpkg.com/split-type@0.3.4/umd/index.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
   <!-- Application Logic -->

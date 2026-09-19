@@ -76,6 +76,11 @@ const translations = {
     "experience.tag": "The Experience",
     "experience.heading": "YOUR SANCTUARY IN EASTHUB",
     "experience.desc": "A calm, thoughtfully appointed space where genuine care, hospital-grade hygiene, and modern refinement come together. Each visit is shaped to offer a moment of pause — quiet, balanced, and entirely your own.",
+    "experience.badge_suite": "Private VIP Sanctuary",
+    "experience.badge_status": "Welcoming Bookings & Walk-ins",
+    "experience.tag_highlight1": "Dedicated 1-on-1 Consultation",
+    "experience.tag_highlight2": "Hospital-Grade Autoclave Sterilization",
+    "experience.tag_highlight3": "Open Daily Until 11:00 PM",
     "experience.feature1_title": "Private Consultation",
     "experience.feature1_desc": "Every treatment begins with a dedicated analysis to customize color, lash curl, or nail architecture.",
     "experience.feature2_title": "Medical-Grade Hygiene",
@@ -134,6 +139,7 @@ const translations = {
     "concierge.service_opt_lip": "Lip Blushing & Glow Facials",
     "concierge.service_opt_bridal": "Bridal & Occasion Glam",
     "concierge.service_opt_pedicure": "Royal Spa Pedicure & Wellness",
+    "concierge.service_opt_brows": "Precision Brow Architecture",
     "concierge.service_opt_package": "Full VIP Lounge Experience",
     "concierge.submit_whatsapp": "Confirm via WhatsApp",
     "concierge.call_label": "Direct Concierge Hotline:",
@@ -216,6 +222,11 @@ const translations = {
     "experience.tag": "تجربة الصالون",
     "experience.heading": "ملاذكِ الخاص في إيست هب",
     "experience.desc": "ملاذ هادئ ومجهز بأناقة في إيست هب مول يجمع بين الاهتمام الشخصي، وأعلى معايير التعقيم الطبي، والرقي العصري. كل زيارة مصممة لتمنحك لحظة استراحة خاصة بكِ وحدك.",
+    "experience.badge_suite": "أجنحة VIP خاصة واستثنائية",
+    "experience.badge_status": "نستقبلكم للحجوزات والزيارات المباشرة",
+    "experience.tag_highlight1": "جلسة استشارة خاصة ومخصصة",
+    "experience.tag_highlight2": "تعقيم طبي حراري فائق 100%",
+    "experience.tag_highlight3": "نستقبلكم يومياً حتى 11:00 مساءً",
     "experience.feature1_title": "استشارة مسبقة مخصصة",
     "experience.feature1_desc": "تبدأ كل جلسة بتحليل دقيق لاختيار الألوان وانحناء الرموش وتصميم الأظافر الأنسب لملامحك.",
     "experience.feature2_title": "تعقيم طبي صارم",
@@ -274,6 +285,7 @@ const translations = {
     "concierge.service_opt_lip": "توريد الشفايف ونضارة البشرة",
     "concierge.service_opt_bridal": "باقات العرائس والمناسبات",
     "concierge.service_opt_pedicure": "سبا الباديكير الملكي والاسترخاء",
+    "concierge.service_opt_brows": "رسم وتصفيح الحواجب المتقن",
     "concierge.service_opt_package": "باقة العناية المتكاملة VIP",
     "concierge.submit_whatsapp": "تأكيد الحجز عبر واتساب",
     "concierge.call_label": "خط الحجز المباشر:",
@@ -285,9 +297,24 @@ const translations = {
   }
 };
 
+// Safe Storage Helper (Protects against Incognito/Private browsing restrictions)
+function safeStorageGet(key, defaultVal) {
+  try {
+    return localStorage.getItem(key) || defaultVal;
+  } catch (e) {
+    return defaultVal;
+  }
+}
+
+function safeStorageSet(key, val) {
+  try {
+    localStorage.setItem(key, val);
+  } catch (e) {}
+}
+
 class I18nManager {
   constructor() {
-    this.currentLang = localStorage.getItem('vida_rose_lang') || 'en';
+    this.currentLang = safeStorageGet('vida_rose_lang', 'en');
   }
 
   init() {
@@ -312,7 +339,7 @@ class I18nManager {
   setLanguage(lang) {
     if (!translations[lang]) return;
     this.currentLang = lang;
-    localStorage.setItem('vida_rose_lang', lang);
+    safeStorageSet('vida_rose_lang', lang);
     this.applyLanguage(lang);
 
     // Dispatch event so animations and layout recalculate

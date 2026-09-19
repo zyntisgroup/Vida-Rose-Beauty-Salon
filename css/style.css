@@ -3,9 +3,6 @@
    Luxury Egyptian Beauty Sanctuary · EastHub Mall, Madinaty, Cairo
    Bilingual: English (Latin Serif) / Egyptian Arabic (El Messiri + Cairo)
    ========================================================================== */
-
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=El+Messiri:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
-
 /* --- Tokens & Variables --- */
 :root {
   --color-rose-gold: #C59B88;
@@ -771,6 +768,11 @@ html[lang="ar"] .hero-badge-pill {
   backface-visibility: hidden;
 }
 
+html[lang="ar"] .louver-strip {
+  transform-origin: right center;
+  transform: rotateY(90deg);
+}
+
 /* ==========================================================================
    3. CATHEDRAL ARCH MORPH SECTION ("BEAUTY IS A WAY OF LIFE")
    ========================================================================== */
@@ -1079,6 +1081,8 @@ html[lang="ar"] .swiper-nav-btn svg {
 .experience-section {
   padding-block: clamp(80px, 10vw, 130px);
   background-color: var(--color-bg-light-alt);
+  position: relative;
+  overflow: hidden;
 }
 
 .experience-grid {
@@ -1088,35 +1092,260 @@ html[lang="ar"] .swiper-nav-btn svg {
   align-items: center;
 }
 
+/* Media Showcase Container */
+.experience-media-container {
+  position: relative;
+  perspective: 1200px;
+}
+
 .experience-media {
   position: relative;
-  border-radius: 12px;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: var(--shadow-card);
+  box-shadow: 0 24px 50px -12px rgba(28, 23, 22, 0.22), 0 0 0 1px rgba(197, 155, 136, 0.25);
+  background: var(--color-bg-dark-card);
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
 }
 
 .experience-img {
   width: 100%;
-  height: clamp(420px, 48vw, 620px);
+  height: clamp(480px, 52vw, 650px);
   object-fit: cover;
+  object-position: center center;
+  display: block;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+.experience-media:hover .experience-img {
+  transform: scale(1.025);
+}
+
+/* Subtle glare overlay */
+.experience-media-glare {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 2;
+  mix-blend-mode: overlay;
+}
+
+.experience-media:hover .experience-media-glare {
+  opacity: 1;
+}
+
+/* Ambient glow */
+.experience-media-aura {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  right: 10%;
+  bottom: 10%;
+  background: radial-gradient(circle, rgba(197, 155, 136, 0.32) 0%, rgba(197, 155, 136, 0) 70%);
+  filter: blur(48px);
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+/* Floating Glassmorphism Badges */
+.exp-floating-badge {
+  position: absolute;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.2);
+  user-select: none;
+  pointer-events: none;
+}
+
+.exp-badge-top {
+  top: 22px;
+  left: 22px;
+  background: rgba(18, 15, 14, 0.78);
+  color: var(--color-rose-gold-light);
+  border: 1px solid rgba(197, 155, 136, 0.45);
+}
+
+html[lang="ar"] .exp-badge-top {
+  left: auto;
+  right: 22px;
+}
+
+.exp-badge-sparkle {
+  color: var(--color-rose-gold);
+  font-size: 0.95rem;
+  animation: expSparklePulse 2.8s ease-in-out infinite;
+}
+
+@keyframes expSparklePulse {
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.85; }
+  50% { transform: scale(1.25) rotate(15deg); opacity: 1; filter: drop-shadow(0 0 6px var(--color-rose-gold)); }
+}
+
+.exp-badge-bottom {
+  bottom: 22px;
+  left: 22px;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--color-text-dark);
+  border: 1px solid rgba(197, 155, 136, 0.35);
+}
+
+html[lang="ar"] .exp-badge-bottom {
+  left: auto;
+  right: 22px;
+}
+
+/* Pulsing live dot */
+.exp-live-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: #2ECC71;
+  position: relative;
+  display: inline-block;
+}
+
+.exp-live-dot::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 2px solid #2ECC71;
+  opacity: 0.75;
+  animation: liveDotPulse 2s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+}
+
+@keyframes liveDotPulse {
+  0% { transform: scale(0.8); opacity: 0.9; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+/* Dynamic Spotlight Tag */
+.exp-dynamic-spotlight {
+  position: absolute;
+  bottom: 76px;
+  left: 22px;
+  right: 22px;
+  z-index: 3;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+}
+
+.spotlight-content {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(28, 23, 22, 0.88);
+  color: #FFFFFF;
+  border: 1px solid rgba(197, 155, 136, 0.55);
+  padding: 11px 18px;
+  border-radius: 12px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35), 0 0 20px rgba(197, 155, 136, 0.2);
+  font-size: 0.9rem;
+  font-weight: 500;
+  max-width: 92%;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+}
+
+.spotlight-content.is-animating {
+  transform: translateY(6px) scale(0.96);
+  opacity: 0;
+}
+
+.spotlight-icon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+/* Interactive Feature Cards */
 .experience-features-list {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 14px;
   margin-block: 28px;
 }
 
 .exp-feature-item {
   display: flex;
-  align-items: flex-start;
-  gap: 16px;
+  align-items: center;
+  gap: 18px;
+  padding: 16px 20px;
+  border-radius: 12px;
+  background: var(--color-surface-white);
+  border: 1px solid rgba(197, 155, 136, 0.18);
+  cursor: pointer;
+  outline: none;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.3s ease,
+              border-color 0.3s ease,
+              box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+}
+
+.exp-feature-item:hover {
+  background: #FFFFFF;
+  border-color: rgba(197, 155, 136, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px -6px rgba(197, 155, 136, 0.18);
+}
+
+.exp-feature-item:focus-visible {
+  outline: 2px solid var(--color-rose-gold);
+  outline-offset: 2px;
+}
+
+.exp-feature-item.is-active {
+  background: #FFFFFF;
+  border-color: var(--color-rose-gold);
+  box-shadow: 0 10px 28px -6px rgba(197, 155, 136, 0.28), 0 0 0 1px var(--color-rose-gold-light);
+  transform: translateY(-2px);
+}
+
+.exp-feature-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 4px;
+  background: var(--color-rose-gold);
+  transform: scaleY(0);
+  transform-origin: center;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 4px 0 0 4px;
+}
+
+html[lang="ar"] .exp-feature-item::before {
+  left: auto;
+  right: 0;
+  border-radius: 0 4px 4px 0;
+}
+
+.exp-feature-item.is-active::before {
+  transform: scaleY(1);
 }
 
 .exp-feature-icon {
-  width: 44px;
-  height: 44px;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
   background: var(--color-blush-tint);
   border: 1px solid var(--color-blush-border);
@@ -1125,18 +1354,64 @@ html[lang="ar"] .swiper-nav-btn svg {
   justify-content: center;
   color: var(--color-rose-gold-dark);
   flex-shrink: 0;
-  font-size: 1.15rem;
+  font-size: 1.25rem;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.exp-feature-item:hover .exp-feature-icon,
+.exp-feature-item.is-active .exp-feature-icon {
+  transform: scale(1.1) rotate(6deg);
+  background: rgba(197, 155, 136, 0.2);
+  border-color: var(--color-rose-gold);
+}
+
+.exp-feature-info {
+  flex: 1;
 }
 
 .exp-feature-title {
-  font-size: 1.25rem;
+  font-size: 1.15rem;
+  font-weight: 600;
   margin-bottom: 4px;
   color: var(--color-text-dark);
+  transition: color 0.3s ease;
+}
+
+.exp-feature-item.is-active .exp-feature-title {
+  color: var(--color-rose-gold-dark);
 }
 
 .exp-feature-desc {
-  font-size: 0.94rem;
+  font-size: 0.92rem;
   color: var(--color-text-muted);
+  line-height: 1.55;
+}
+
+.exp-feature-arrow {
+  color: var(--color-rose-gold-light);
+  opacity: 0.35;
+  transition: transform 0.3s ease, opacity 0.3s ease, color 0.3s ease;
+  flex-shrink: 0;
+}
+
+.exp-feature-item:hover .exp-feature-arrow,
+.exp-feature-item.is-active .exp-feature-arrow {
+  opacity: 1;
+  color: var(--color-rose-gold);
+  transform: translateX(4px);
+}
+
+html[lang="ar"] .exp-feature-arrow svg {
+  transform: rotate(180deg);
+}
+
+html[lang="ar"] .exp-feature-item:hover .exp-feature-arrow,
+html[lang="ar"] .exp-feature-item.is-active .exp-feature-arrow {
+  transform: translateX(-4px);
+}
+
+.experience-cta-wrap {
+  margin-top: 28px;
 }
 
 /* ==========================================================================
@@ -1632,6 +1907,65 @@ html[lang="ar"] .footer-col-title {
 }
 
 @media (max-width: 767px) {
+  .experience-img {
+    height: clamp(380px, 95vw, 480px);
+  }
+
+  .exp-floating-badge {
+    padding: 8px 14px;
+    font-size: 0.75rem;
+    gap: 7px;
+  }
+
+  .exp-badge-top {
+    top: 14px;
+    left: 14px;
+  }
+
+  html[lang="ar"] .exp-badge-top {
+    right: 14px;
+  }
+
+  .exp-badge-bottom {
+    bottom: 14px;
+    left: 14px;
+  }
+
+  html[lang="ar"] .exp-badge-bottom {
+    right: 14px;
+  }
+
+  .exp-dynamic-spotlight {
+    bottom: 64px;
+    left: 14px;
+    right: 14px;
+  }
+
+  .spotlight-content {
+    font-size: 0.82rem;
+    padding: 9px 14px;
+    max-width: 100%;
+  }
+
+  .exp-feature-item {
+    padding: 14px 16px;
+    gap: 14px;
+  }
+
+  .exp-feature-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+
+  .exp-feature-title {
+    font-size: 1.05rem;
+  }
+
+  .exp-feature-desc {
+    font-size: 0.88rem;
+  }
+
   .artists-grid {
     grid-template-columns: 1fr;
   }
@@ -1657,3 +1991,18 @@ html[lang="ar"] .footer-col-title {
     display: none;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .experience-media,
+  .experience-img,
+  .exp-badge-sparkle,
+  .exp-live-dot::after,
+  .spotlight-content,
+  .exp-feature-item,
+  .exp-feature-icon,
+  .exp-feature-arrow {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
