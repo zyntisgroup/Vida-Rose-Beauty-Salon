@@ -1,0 +1,87 @@
+/* ==========================================================================
+   VIDA ROSÉ BEAUTY LOUNGE — ANIMATIONS & GSAP PRE-STATES
+   ========================================================================== */
+
+/* Prevent default transition conflicts on elements driven by GSAP */
+.hero-title,
+.hero-subtitle,
+.hero-actions,
+.hero-rating-badge,
+.arch-section,
+.arch-portrait,
+.service-card,
+.section-title,
+.section-subtitle,
+.gallery-item,
+.louver-strip {
+  transition: none !important;
+}
+
+/* SplitType Word & Character Wrappers */
+.word {
+  display: inline-block !important;
+  white-space: nowrap !important;
+  will-change: transform, opacity;
+}
+
+.char {
+  display: inline-block !important;
+  will-change: transform, opacity;
+}
+
+/* RTL: In Arabic, preserve connected ligatures */
+html[lang="ar"] .char {
+  display: inline !important;
+  transform: none !important;
+}
+
+/* Polygon Clip-Path Reveal */
+.clip-reveal-wrap {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  will-change: clip-path;
+  overflow: hidden;
+}
+
+.clip-reveal-wrap img {
+  will-change: transform;
+}
+
+/* Louver Strips */
+.rose-louver-cover {
+  will-change: opacity;
+}
+
+.louver-strip {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background: var(--color-rose-gold);
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  transform: rotateY(-90deg);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+html[lang="ar"] .louver-strip {
+  transform-origin: right center;
+  transform: rotateY(90deg);
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .welcome-curtain {
+    display: none !important;
+  }
+  
+  .rose-louver-cover {
+    display: none !important;
+  }
+}

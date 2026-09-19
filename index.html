@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vida Rosé Beauty Lounge | EastHub Mall Madinaty · Cairo</title>
+  <meta name="description" content="Vida Rosé Beauty Lounge at EastHub Mall, Madinaty. Premier luxury salon specializing in eyelash extensions, hair coloring, balayage, Russian manicures, and lip blushing.">
+  <link rel="canonical" href="https://vidarose.eg/">
+
+  <!-- Open Graph Meta -->
+  <meta property="og:title" content="Vida Rosé Beauty Lounge | EastHub Mall, Madinaty">
+  <meta property="og:description" content="Your Beauty Is Our Passion. Experience refined beauty rituals, bespoke eyelash extensions, and luxury hair and nail artistry in Madinaty.">
+  <meta property="og:image" content="assets/images/hero-lounge.jpg">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon / SVG Monogram -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%23120F0E' stroke='%23C59B88' stroke-width='4'/><text x='50%' y='58%' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='42' fill='%23C59B88'>VR</text></svg>">
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+  <!-- Master Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       0. LUXURY WELCOME CURTAIN REVEAL (PAGE REFRESH & LOAD)
+       ========================================================================== -->
+  <div class="welcome-curtain" aria-hidden="true">
+    <div class="welcome-inner">
+      <div class="welcome-monogram">VR</div>
+      <h1 class="welcome-title" data-i18n="welcome.title">VIDA ROSÉ</h1>
+      <p class="welcome-subtitle" data-i18n="welcome.subtitle">BEAUTY LOUNGE · EASTHUB MALL, MADINATY</p>
+      <div class="welcome-loader-bar">
+        <div class="welcome-loader-fill"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       1. STICKY HEADER & NAVIGATION
+       ========================================================================== -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        
+        <!-- Dual-State Brand Logo -->
+        <a href="#" class="brand-logo" aria-label="Vida Rosé Beauty Lounge Homepage">
+          <div class="brand-monogram">VR</div>
+          <div class="brand-name">
+            <span class="brand-title">Vida Rosé</span>
+            <span class="brand-sub">Beauty Lounge · Madinaty</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Menu -->
+        <nav aria-label="Main Navigation">
+          <ul class="nav-menu">
+            <li><a href="#about" class="nav-link" data-i18n="nav.about">About</a></li>
+            <li><a href="#services" class="nav-link" data-i18n="nav.services">Services</a></li>
+            <li><a href="#gallery" class="nav-link" data-i18n="nav.gallery">Gallery</a></li>
+            <li><a href="#artists" class="nav-link" data-i18n="nav.artists">Our Artists</a></li>
+            <li><a href="#location" class="nav-link" data-i18n="nav.location">Location</a></li>
+          </ul>
+        </nav>
+
+        <!-- Header Actions: Language Switcher & Booking -->
+        <div class="header-actions">
+          <!-- Real-Time Language Switcher -->
+          <button type="button" class="lang-toggle-btn js-lang-toggle" aria-label="Switch Language">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+            <span class="js-lang-text">العربية</span>
+          </button>
+
+          <!-- Book Now CTA -->
+          <a href="#concierge-modal" class="btn btn-primary header-btn js-open-concierge" data-i18n="nav.book">Book Now</a>
+
+          <!-- Mobile Drawer Toggle -->
+          <button type="button" class="mobile-toggle" aria-label="Open Navigation Drawer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Off-Canvas Navigation Drawer -->
+  <div class="drawer-overlay"></div>
+  <aside class="mobile-drawer" aria-label="Mobile Navigation">
+    <button type="button" class="drawer-close" aria-label="Close Navigation">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    <ul class="mobile-nav-menu">
+      <li><a href="#about" class="mobile-nav-link" data-i18n="nav.about">About</a></li>
+      <li><a href="#services" class="mobile-nav-link" data-i18n="nav.services">Services</a></li>
+      <li><a href="#gallery" class="mobile-nav-link" data-i18n="nav.gallery">Gallery</a></li>
+      <li><a href="#artists" class="mobile-nav-link" data-i18n="nav.artists">Our Artists</a></li>
+      <li><a href="#location" class="mobile-nav-link" data-i18n="nav.location">Location</a></li>
+    </ul>
+    <div style="margin-top: auto; display: flex; flex-direction: column; gap: 14px;">
+      <button type="button" class="btn btn-outline-light js-lang-toggle" style="width: 100%;">
+        <span class="js-lang-text">العربية</span>
+      </button>
+      <a href="#concierge-modal" class="btn btn-primary js-open-concierge" style="width: 100%;" data-i18n="nav.book">Book Now</a>
+    </div>
+  </aside>
+
+  <main>
+    <!-- ==========================================================================
+         2. HERO SECTION
+         ========================================================================== -->
+    <section class="hero-section" id="hero">
+      <div class="hero-bg-wrap">
+        <img src="assets/images/hero-lounge.jpg" alt="Vida Rosé Luxury Lounge EastHub Madinaty" class="hero-bg-img">
+      </div>
+      
+      <!-- Top Scrim for High-Contrast Header Readability -->
+      <div class="hero-scrim-top" aria-hidden="true"></div>
+      <div class="hero-overlay" aria-hidden="true"></div>
+
+      <!-- Signature Louver Cover (Positioned Behind Text) -->
+      <div class="rose-louver-cover" aria-hidden="true"></div>
+
+      <div class="container hero-content">
+        <div class="hero-badge-pill">
+          <span>✨</span>
+          <span data-i18n="hero.eyebrow">EastHub Mall · Madinaty · Cairo</span>
+        </div>
+
+        <h1 class="hero-title">
+          <span data-i18n="hero.title_line1">A REFINED GLOW,</span><br>
+          <span class="u-nowrap" data-i18n="hero.title_line2">THE VIDA ROSÉ WAY</span>
+        </h1>
+
+        <p class="hero-subtitle" data-i18n="hero.subtitle">
+          Where bespoke beauty rituals, intimate care, and quiet luxury meet in Madinaty.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#concierge-modal" class="btn btn-primary js-open-concierge" data-i18n="hero.cta">Book Your Experience</a>
+          <a href="#services" class="btn btn-outline-light" data-i18n="hero.explore">Explore Offerings</a>
+        </div>
+
+        <div class="hero-rating-badge">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+          <span data-i18n="hero.rating_badge">5.0 ★ (40 Google Reviews)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         3. CATHEDRAL ARCH MORPH SECTION ("BEAUTY IS A WAY OF LIFE")
+         ========================================================================== -->
+    <section class="arch-section" id="about">
+      <div class="container">
+        
+        <div class="arch-header">
+          <svg class="arch-ornament" viewBox="0 0 100 100" fill="currentColor">
+            <path d="M50 10 C55 30 70 45 90 50 C70 55 55 70 50 90 C45 70 30 55 10 50 C30 45 45 30 50 10 Z"/>
+          </svg>
+          <div class="tag-badge" data-i18n="intro.tag">Madinaty’s Premier Sanctuary</div>
+        </div>
+
+        <div class="arch-grid">
+          <!-- Private VIP Suite Architectural Portrait with Polygon Wipe -->
+          <div class="arch-media-wrap clip-reveal-wrap">
+            <img src="assets/images/about-portrait.jpg" alt="Vida Rosé Private Suite EastHub Madinaty" class="arch-portrait">
+          </div>
+
+          <!-- Narrative Content -->
+          <div class="arch-narrative">
+            <h2 class="arch-narrative-title js-split-heading" data-i18n="intro.heading">BEAUTY IS A WAY OF LIFE.</h2>
+            <p class="arch-narrative-text" data-i18n="intro.paragraph">
+              It is found in moments of unhurried care, in each considered aesthetic ritual, and in the sanctuary of time well spent. Vida Rosé brings this sensibility to EastHub Mall in Madinaty — offering an intimate space of pause and refined beauty, where every detail is thoughtfully curated to reveal your most luminous self.
+            </p>
+            <a href="#services" class="btn btn-outline-dark" data-i18n="intro.cta">Discover Our Story</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         4. CURATED OFFERINGS — INFINITE CAROUSEL
+         ========================================================================== -->
+    <section class="services-section" id="services">
+      <div class="container">
+        
+        <div class="section-heading-wrap">
+          <span class="tag-badge" data-i18n="services.tag">Curated Offerings</span>
+          <h2 class="section-title text-light js-split-heading" data-i18n="services.heading">A SENSORY EXPERIENCE, THOUGHTFULLY COMPOSED</h2>
+          <p class="section-subtitle text-light js-split-words" data-i18n="services.subheading">From bespoke lash artistry to head-turning hair transformations.</p>
+        </div>
+
+        <!-- Infinite Swiper Carousel Wrap -->
+        <div class="services-carousel-wrap">
+          <div class="swiper services-swiper">
+            <div class="swiper-wrapper">
+              
+              <!-- Slide 1: Lash & Brow Artistry -->
+              <div class="swiper-slide">
+                <div class="service-card clip-reveal-wrap js-open-concierge" data-service="Lash & Brow Artistry">
+                  <img src="assets/images/lashes-artistry.jpg" alt="Lash and Brow Artistry" class="service-card-bg">
+                  <div class="service-card-overlay"></div>
+                  <div class="service-card-content">
+                    <span class="service-card-tag" data-i18n="services.item1_tag">Signature Focus</span>
+                    <h3 class="service-card-title" data-i18n="services.item1_title">LASH & BROW ARTISTRY</h3>
+                    <p class="service-card-desc" data-i18n="services.item1_desc">Classic, Russian Volume, and Mega Volume lash extensions tailored to your eye shape, paired with precision brow lamination and microblading.</p>
+                    <span class="service-card-cta">
+                      <span data-i18n="nav.book">Book Now</span>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 2: Hair Artistry & Color Lounge -->
+              <div class="swiper-slide">
+                <div class="service-card clip-reveal-wrap js-open-concierge" data-service="Hair Styling & Balayage Color">
+                  <img src="assets/images/hair-color-styling.jpg" alt="Hair Artistry and Balayage Color" class="service-card-bg">
+                  <div class="service-card-overlay"></div>
+                  <div class="service-card-content">
+                    <span class="service-card-tag" data-i18n="services.item2_tag">Couture Styling</span>
+                    <h3 class="service-card-title" data-i18n="services.item2_title">HAIR ARTISTRY & COLOR LOUNGE</h3>
+                    <p class="service-card-desc" data-i18n="services.item2_desc">Bespoke balayage, luminous gloss toners, precision contour cuts, and restorative protein and hydration therapies.</p>
+                    <span class="service-card-cta">
+                      <span data-i18n="nav.book">Book Now</span>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 3: Hand & Foot Spa Rituals -->
+              <div class="swiper-slide">
+                <div class="service-card clip-reveal-wrap js-open-concierge" data-service="Russian Manicure & Pedicure Spa">
+                  <img src="assets/images/nails-spa.jpg" alt="Russian Manicure and Pedicure Spa" class="service-card-bg">
+                  <div class="service-card-overlay"></div>
+                  <div class="service-card-content">
+                    <span class="service-card-tag" data-i18n="services.item3_tag">Luxury Care</span>
+                    <h3 class="service-card-title" data-i18n="services.item3_title">HAND & FOOT SPA RITUALS</h3>
+                    <p class="service-card-desc" data-i18n="services.item3_desc">Dry Russian manicures, strengthening builder gel, aesthetic nail architecture, and deep therapeutic spa pedicures with rose petals.</p>
+                    <span class="service-card-cta">
+                      <span data-i18n="nav.book">Book Now</span>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 4: Lip Blushing & Glow Aesthetics -->
+              <div class="swiper-slide">
+                <div class="service-card clip-reveal-wrap js-open-concierge" data-service="Lip Blushing & Glow Facials">
+                  <img src="assets/images/lip-blush-facials.jpg" alt="Lip Blushing and Radiance Facials" class="service-card-bg">
+                  <div class="service-card-overlay"></div>
+                  <div class="service-card-content">
+                    <span class="service-card-tag" data-i18n="services.item4_tag">Aesthetics</span>
+                    <h3 class="service-card-title" data-i18n="services.item4_title">LIP BLUSHING & GLOW AESTHETICS</h3>
+                    <p class="service-card-desc" data-i18n="services.item4_desc">Semi-permanent natural lip blushing (توريد الشفايف) for soft, defined petal tint, alongside deep cleansing radiance facials.</p>
+                    <span class="service-card-cta">
+                      <span data-i18n="nav.book">Book Now</span>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 5: Bridal & Couture Occasion Glam -->
+              <div class="swiper-slide">
+                <div class="service-card clip-reveal-wrap js-open-concierge" data-service="Bridal & Couture Occasion Glam">
+                  <img src="assets/images/gallery-bridal.jpg" alt="Bridal and Occasion Glam" class="service-card-bg">
+                  <div class="service-card-overlay"></div>
+                  <div class="service-card-content">
+                    <span class="service-card-tag" data-i18n="services.item5_tag">Haute Couture</span>
+                    <h3 class="service-card-title" data-i18n="services.item5_title">BRIDAL & COUTURE OCCASION GLAM</h3>
+                    <p class="service-card-desc" data-i18n="services.item5_desc">Haute couture bridal packages, bespoke veil styling, 24-hour waterproof airbrush glam, and a private VIP lounge suite for your special day.</p>
+                    <span class="service-card-cta">
+                      <span data-i18n="nav.book">Book Now</span>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 6: Royal Spa Pedicure & Body Wellness -->
+              <div class="swiper-slide">
+                <div class="service-card clip-reveal-wrap js-open-concierge" data-service="Royal Spa Pedicure & Body Wellness">
+                  <img src="assets/images/gallery-pedicure.jpg" alt="Royal Spa Pedicure and Body Wellness" class="service-card-bg">
+                  <div class="service-card-overlay"></div>
+                  <div class="service-card-content">
+                    <span class="service-card-tag" data-i18n="services.item6_tag">Holistic Spa</span>
+                    <h3 class="service-card-title" data-i18n="services.item6_title">ROYAL SPA PEDICURE & BODY WELLNESS</h3>
+                    <p class="service-card-desc" data-i18n="services.item6_desc">Therapeutic botanical foot bathing with Damascus rose petals, organic scrub exfoliation, warm argan oil massage, and soothing reflexology.</p>
+                    <span class="service-card-cta">
+                      <span data-i18n="nav.book">Book Now</span>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 7: Precision Brow Architecture & Lamination -->
+              <div class="swiper-slide">
+                <div class="service-card clip-reveal-wrap js-open-concierge" data-service="Precision Brow Architecture">
+                  <img src="assets/images/gallery-lash-macro.jpg" alt="Precision Brow Architecture and Lamination" class="service-card-bg">
+                  <div class="service-card-overlay"></div>
+                  <div class="service-card-content">
+                    <span class="service-card-tag" data-i18n="services.item7_tag">Sculpt & Shape</span>
+                    <h3 class="service-card-title" data-i18n="services.item7_title">PRECISION BROW ARCHITECTURE & LAMINATION</h3>
+                    <p class="service-card-desc" data-i18n="services.item7_desc">Bespoke brow shaping, Russian keratin brow lamination, HD tinting, and precise micro-mapping designed to flatter your natural facial bone structure.</p>
+                    <span class="service-card-cta">
+                      <span data-i18n="nav.book">Book Now</span>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Carousel Controls -->
+          <div class="services-nav-controls">
+            <button type="button" class="swiper-nav-btn swiper-button-prev-custom" aria-label="Previous Service">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            </button>
+            <button type="button" class="swiper-nav-btn swiper-button-next-custom" aria-label="Next Service">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         5. EDITORIAL RICH GALLERY (STABLE & ABUNDANT)
+         ========================================================================== -->
+    <section class="gallery-section" id="gallery">
+      <div class="container">
+        
+        <div class="section-heading-wrap">
+          <span class="tag-badge" data-i18n="gallery.tag">Authentic Work</span>
+          <h2 class="section-title js-split-heading">
+            <span class="u-nowrap">EVERY DETAIL,</span> <span class="u-nowrap">A PLEASURE.</span>
+          </h2>
+          <p class="section-subtitle js-split-words" data-i18n="gallery.desc">
+            Step into Vida Rosé and experience deliberate artistry. Real clients, real transformations, and the serene beauty of our EastHub lounge.
+          </p>
+        </div>
+
+        <!-- Stable Editorial 9-Grid Showcase -->
+        <div class="gallery-grid">
+          
+          <!-- Item 1: Egyptian Bridal Glow -->
+          <div class="gallery-item tall clip-reveal-wrap">
+            <img src="assets/images/gallery-bridal.jpg" alt="Egyptian Bridal Glow in Cairo" class="gallery-img">
+            <div class="gallery-item-caption">
+              <span class="gallery-caption-title">Bridal Radiance</span>
+            </div>
+          </div>
+
+          <!-- Item 2: Macro Lash Extension Art -->
+          <div class="gallery-item standard clip-reveal-wrap">
+            <img src="assets/images/gallery-lash-macro.jpg" alt="Russian Volume Lash Isolation" class="gallery-img">
+            <div class="gallery-item-caption">
+              <span class="gallery-caption-title">Bespoke Lash Isolation</span>
+            </div>
+          </div>
+
+          <!-- Item 3: Luxury Pedicure Copper Bath -->
+          <div class="gallery-item tall clip-reveal-wrap">
+            <img src="assets/images/gallery-pedicure.jpg" alt="Rose Petal Copper Pedicure Bath" class="gallery-img">
+            <div class="gallery-item-caption">
+              <span class="gallery-caption-title">Rose Petal Spa Pedicure</span>
+            </div>
+          </div>
+
+          <!-- Item 4: Balayage & Gloss Waves -->
+          <div class="gallery-item standard clip-reveal-wrap">
+            <img src="assets/images/hair-color-styling.jpg" alt="Dimensional Balayage Styling" class="gallery-img">
+            <div class="gallery-item-caption">
+              <span class="gallery-caption-title">Dimensional Balayage</span>
+            </div>
+          </div>
+
+          <!-- Item 5: Private VIP Styling Suite -->
+          <div class="gallery-item tall clip-reveal-wrap">
+            <img src="assets/images/about-portrait.jpg" alt="Private VIP Styling Suite EastHub" class="gallery-img">
+            <div class="gallery-item-caption">
+              <span class="gallery-caption-title">Private VIP Suite</span>
+            </div>
+          </div>
+
+          <!-- Item 6: Russian Dry Manicure Art -->
+          <div class="gallery-item standard clip-reveal-wrap">
+            <img src="assets/images/nails-spa.jpg" alt="Russian Manicure Clean Art" class="gallery-img">
+            <div class="gallery-item-caption">
+              <span class="gallery-caption-title">Russian Dry Manicure</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         6. SIGNATURE EXPERIENCE SPOTLIGHT
+         ========================================================================== -->
+    <section class="experience-section">
+      <div class="container">
+        <div class="experience-grid">
+          
+          <div class="experience-media clip-reveal-wrap">
+            <img src="assets/images/lounge-interior.jpg" alt="Vida Rosé Lounge Interior EastHub" class="experience-img">
+          </div>
+
+          <div class="experience-content">
+            <span class="tag-badge" data-i18n="experience.tag">The Experience</span>
+            <h2 class="section-title js-split-heading" data-i18n="experience.heading">YOUR SANCTUARY IN EASTHUB</h2>
+            <p class="section-subtitle" data-i18n="experience.desc">
+              A calm, thoughtfully appointed space where genuine care, hospital-grade hygiene, and modern refinement come together. Each visit is shaped to offer a moment of pause — quiet, balanced, and entirely your own.
+            </p>
+
+            <div class="experience-features-list">
+              <div class="exp-feature-item">
+                <div class="exp-feature-icon">✨</div>
+                <div>
+                  <h4 class="exp-feature-title" data-i18n="experience.feature1_title">Private Consultation</h4>
+                  <p class="exp-feature-desc" data-i18n="experience.feature1_desc">Every treatment begins with a dedicated analysis to customize color, lash curl, or nail architecture.</p>
+                </div>
+              </div>
+
+              <div class="exp-feature-item">
+                <div class="exp-feature-icon">🛡️</div>
+                <div>
+                  <h4 class="exp-feature-title" data-i18n="experience.feature2_title">Medical-Grade Hygiene</h4>
+                  <p class="exp-feature-desc" data-i18n="experience.feature2_desc">Hospital-standard autoclave sterilization and single-use premium tools for your complete peace of mind.</p>
+                </div>
+              </div>
+
+              <div class="exp-feature-item">
+                <div class="exp-feature-icon">🌙</div>
+                <div>
+                  <h4 class="exp-feature-title" data-i18n="experience.feature3_title">Relaxed Evening Hours</h4>
+                  <p class="exp-feature-desc" data-i18n="experience.feature3_desc">Open daily until 11:00 PM to accommodate your schedule after work or mall leisure.</p>
+                </div>
+              </div>
+            </div>
+
+            <a href="#location" class="btn btn-primary" data-i18n="experience.cta">Plan Your Visit</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         7. MASTER ARTISTS (EGYPTIAN SPECIALISTS)
+         ========================================================================== -->
+    <section class="artists-section" id="artists">
+      <div class="container">
+        
+        <div class="section-heading-wrap">
+          <span class="tag-badge" data-i18n="artists.tag">Master Specialists</span>
+          <h2 class="section-title js-split-heading" data-i18n="artists.heading">MEET OUR ARTISTS</h2>
+          <p class="section-subtitle js-split-words" data-i18n="artists.subheading">Trained hands, passionate minds, and an eye for balanced elegance.</p>
+        </div>
+
+        <div class="artists-grid">
+          
+          <!-- Specialist 1: Lash & Brow Artist -->
+          <div class="artist-card">
+            <div class="artist-photo-wrap">
+              <img src="assets/images/artist-lash.jpg" alt="Yasmin El-Sayed Master Lash Specialist" class="artist-photo">
+            </div>
+            <div class="artist-info">
+              <span class="artist-role-badge" data-i18n="artists.role1">Master Lash & Brow Artist</span>
+              <h3 class="artist-name" data-i18n="artists.name1">Yasmin El-Sayed</h3>
+              <p class="artist-bio" data-i18n="artists.bio1">Specializing in Russian Volume mapping and damage-free isolation.</p>
+              <button type="button" class="artist-book-link js-open-concierge" data-service="Lash & Brow Artistry">
+                <span data-i18n="artists.consult_btn">Book Consultation</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Specialist 2: Senior Colorist -->
+          <div class="artist-card">
+            <div class="artist-photo-wrap">
+              <img src="assets/images/artist-hair.jpg" alt="Farida Mansour Senior Hair Colorist" class="artist-photo">
+            </div>
+            <div class="artist-info">
+              <span class="artist-role-badge" data-i18n="artists.role2">Senior Colorist & Hair Stylist</span>
+              <h3 class="artist-name" data-i18n="artists.name2">Farida Mansour</h3>
+              <p class="artist-bio" data-i18n="artists.bio2">Master of seamless dimensional balayage and restorative blowouts.</p>
+              <button type="button" class="artist-book-link js-open-concierge" data-service="Hair Styling & Balayage Color">
+                <span data-i18n="artists.consult_btn">Book Consultation</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Specialist 3: Semi-Permanent Aesthetician -->
+          <div class="artist-card">
+            <div class="artist-photo-wrap">
+              <img src="assets/images/artist-brows.jpg" alt="Salma Fahmy Semi-Permanent Aesthetician" class="artist-photo">
+            </div>
+            <div class="artist-info">
+              <span class="artist-role-badge" data-i18n="artists.role3">Semi-Permanent Aesthetician</span>
+              <h3 class="artist-name" data-i18n="artists.name3">Salma Fahmy</h3>
+              <p class="artist-bio" data-i18n="artists.bio3">Expert in natural petal-soft lip blushing and microblading brows.</p>
+              <button type="button" class="artist-book-link js-open-concierge" data-service="Lip Blushing & Glow Facials">
+                <span data-i18n="artists.consult_btn">Book Consultation</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Specialist 4: Nail Architect -->
+          <div class="artist-card">
+            <div class="artist-photo-wrap">
+              <img src="assets/images/artist-nails.jpg" alt="Dina Kamel Nail Architect Specialist" class="artist-photo">
+            </div>
+            <div class="artist-info">
+              <span class="artist-role-badge" data-i18n="artists.role4">Nail Architect Specialist</span>
+              <h3 class="artist-name" data-i18n="artists.name4">Dina Kamel</h3>
+              <p class="artist-bio" data-i18n="artists.bio4">Dedicated to Russian dry manicures and long-lasting gel sculpting.</p>
+              <button type="button" class="artist-book-link js-open-concierge" data-service="Russian Manicure & Pedicure Spa">
+                <span data-i18n="artists.consult_btn">Book Consultation</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         8. EASTHUB MALL LOCATION & HOURS
+         ========================================================================== -->
+    <section class="location-section" id="location">
+      <div class="container">
+        
+        <div class="section-heading-wrap">
+          <span class="tag-badge" data-i18n="location.tag">Visit Us</span>
+          <h2 class="section-title text-light js-split-heading" data-i18n="location.heading">IN THE HEART OF EASTHUB</h2>
+          <p class="section-subtitle text-light js-split-words" data-i18n="location.subheading">Conveniently located at Madinaty's premier lifestyle hub with ample parking.</p>
+        </div>
+
+        <div class="location-grid">
+          
+          <div class="location-details-box">
+            
+            <div class="loc-info-row">
+              <svg class="loc-info-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <div>
+                <span class="loc-label" data-i18n="location.address_label">Address</span>
+                <div class="loc-val" data-i18n="location.address_val">EastHub Mall, Entrance 1, Madinaty, Cairo, Egypt</div>
+              </div>
+            </div>
+
+            <div class="loc-info-row">
+              <svg class="loc-info-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              <div>
+                <span class="loc-label" data-i18n="location.hours_label">Operating Hours</span>
+                <div class="loc-hours-highlight">
+                  <span data-i18n="location.hours_val">Open Daily · 10:00 AM – 11:00 PM</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="loc-info-row">
+              <svg class="loc-info-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+              <div>
+                <span class="loc-label" data-i18n="location.contact_label">Direct Inquiries & WhatsApp</span>
+                <a href="tel:01041212004" class="loc-val" style="color: var(--color-rose-gold);">01041212004</a>
+              </div>
+            </div>
+
+            <div class="loc-info-row">
+              <svg class="loc-info-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
+                <line x1="7" y1="2" x2="7" y2="22"></line>
+                <line x1="17" y1="2" x2="17" y2="22"></line>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <line x1="2" y1="7" x2="7" y2="7"></line>
+                <line x1="2" y1="17" x2="7" y2="17"></line>
+                <line x1="17" y1="17" x2="22" y2="17"></line>
+                <line x1="17" y1="7" x2="22" y2="7"></line>
+              </svg>
+              <div>
+                <span class="loc-label" data-i18n="location.code_label">Plus Code</span>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <span class="loc-val" data-i18n="location.code_val">3MFC+HP Second New Cairo</span>
+                  <button type="button" class="js-copy-code btn-outline-light" style="padding: 3px 10px; font-size: 0.74rem; border-radius: 4px; cursor: pointer;" data-code="3MFC+HP Second New Cairo">Copy</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="location-actions">
+              <a href="https://maps.google.com/?q=EastHub+Mall+Madinaty+Cairo" target="_blank" rel="noopener" class="btn btn-outline-light" data-i18n="location.map_btn">Open Google Maps</a>
+              <a href="https://wa.me/201041212004?text=Hello%20Vida%20Ros%C3%A9%2C%20I%20would%20like%20to%20inquire%20about%20booking" target="_blank" rel="noopener" class="btn btn-primary" data-i18n="location.whatsapp_btn">Chat on WhatsApp</a>
+            </div>
+
+          </div>
+
+          <div class="location-map-card">
+            <iframe 
+              class="location-map-frame" 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13809.553927697416!2d31.6214532!3d30.0838118!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14581d6836798a3b%3A0x8661644ecbe153e!2sEast%20Hub%20Mall!5e0!3m2!1sen!2seg!4v1710875000000!5m2!1sen!2seg" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade" 
+              title="Vida Rosé Beauty Lounge EastHub Location">
+            </iframe>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         9. INSTAGRAM GLOW BANNER
+         ========================================================================== -->
+    <section class="social-section" style="padding-block: 70px; background-color: var(--color-bg-light-alt); text-align: center;">
+      <div class="container">
+        <span class="tag-badge" data-i18n="social.tag">Real Results</span>
+        <h2 class="section-title js-split-heading" style="margin-bottom: 12px;" data-i18n="social.heading">GLOW WITH US</h2>
+        <p class="section-subtitle" style="margin-bottom: 24px;" data-i18n="social.subheading">Follow @vida_rose_easthub for transformations, salon moments, and seasonal offers.</p>
+        <a href="https://www.instagram.com/vida_rose_easthub" target="_blank" rel="noopener" class="btn btn-outline-dark" data-i18n="social.follow_btn">Follow On Instagram</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       10. LUXURY FOOTER
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        
+        <div>
+          <a href="#" class="brand-logo" style="margin-bottom: 16px;">
+            <div class="brand-monogram">VR</div>
+            <div class="brand-name">
+              <span class="brand-title">Vida Rosé</span>
+              <span class="brand-sub">Beauty Lounge · Madinaty</span>
+            </div>
+          </a>
+          <p class="footer-brand-bio" data-i18n="intro.paragraph">
+            It is found in moments of unhurried care, in each considered aesthetic ritual, and in the sanctuary of time well spent. Vida Rosé brings this sensibility to EastHub Mall in Madinaty.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title" data-i18n="nav.services">Services</h4>
+          <ul class="footer-links">
+            <li><a href="#services" class="footer-link" data-i18n="services.item1_title">Lash & Brow Artistry</a></li>
+            <li><a href="#services" class="footer-link" data-i18n="services.item2_title">Hair Artistry & Color Lounge</a></li>
+            <li><a href="#services" class="footer-link" data-i18n="services.item3_title">Hand & Foot Spa Rituals</a></li>
+            <li><a href="#services" class="footer-link" data-i18n="services.item4_title">Lip Blushing & Glow Aesthetics</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title" data-i18n="nav.location">Location</h4>
+          <p class="footer-link" style="margin-bottom: 8px;" data-i18n="location.address_val">EastHub Mall, Entrance 1, Madinaty, Cairo</p>
+          <p class="footer-link" style="margin-bottom: 8px;" data-i18n="location.hours_val">Open Daily · 10:00 AM – 11:00 PM</p>
+          <a href="tel:01041212004" class="footer-link" style="color: var(--color-rose-gold); font-weight: 600;">010 41212004</a>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <span data-i18n="footer.rights">© 2026 Vida Rosé Beauty Lounge. All rights reserved.</span>
+        <span data-i18n="footer.tagline">Your Beauty Is Our Passion.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       11. FLOATING WHATSAPP & BOOKING MODAL (SERVICE PILLS SELECTION)
+       ========================================================================== -->
+  <a href="https://wa.me/201041212004?text=Hello%20Vida%20Ros%C3%A9%2C%20I%20would%20like%20to%20book%20an%20appointment" target="_blank" rel="noopener" class="floating-whatsapp" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+    </svg>
+  </a>
+
+  <!-- Concierge Appointment Modal with Clearly Visible Pills -->
+  <div class="modal-overlay" id="concierge-modal" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
+    <div class="modal-box">
+      <button type="button" class="modal-close" aria-label="Close Modal">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <h3 class="modal-title" id="modal-heading" data-i18n="concierge.title">RESERVE YOUR APPOINTMENT</h3>
+      <p class="modal-subtitle" data-i18n="concierge.subtitle">
+        Connect directly with our reception concierge via WhatsApp or telephone for instant confirmation.
+      </p>
+
+      <form id="concierge-form">
+        <div class="modal-form-group">
+          <label class="modal-label" data-i18n="concierge.name_placeholder">Your Name</label>
+          <input type="text" name="client_name" class="modal-input" placeholder="Enter your full name" data-i18n-placeholder="concierge.name_placeholder" required>
+        </div>
+
+        <div class="modal-form-group">
+          <label class="modal-label" data-i18n="concierge.service_label">Select Desired Service:</label>
+          <!-- Clearly Visible Service Selector Pills -->
+          <div class="service-pills-grid">
+            <label class="service-pill-label is-selected">
+              <input type="radio" name="service_choice" value="Lash & Brow Artistry" checked>
+              <span data-i18n="concierge.service_opt_lash">Lash & Brow Artistry</span>
+            </label>
+
+            <label class="service-pill-label">
+              <input type="radio" name="service_choice" value="Hair Styling & Balayage Color">
+              <span data-i18n="concierge.service_opt_hair">Hair Styling & Color</span>
+            </label>
+
+            <label class="service-pill-label">
+              <input type="radio" name="service_choice" value="Russian Manicure & Pedicure Spa">
+              <span data-i18n="concierge.service_opt_nails">Nails & Pedicure Spa</span>
+            </label>
+
+            <label class="service-pill-label">
+              <input type="radio" name="service_choice" value="Lip Blushing & Glow Facials">
+              <span data-i18n="concierge.service_opt_lip">Lip Blushing & Facials</span>
+            </label>
+
+            <label class="service-pill-label">
+              <input type="radio" name="service_choice" value="Bridal & Couture Occasion Glam">
+              <span data-i18n="concierge.service_opt_bridal">Bridal & Occasion Glam</span>
+            </label>
+
+            <label class="service-pill-label">
+              <input type="radio" name="service_choice" value="Royal Spa Pedicure & Body Wellness">
+              <span data-i18n="concierge.service_opt_pedicure">Royal Spa Pedicure</span>
+            </label>
+
+            <label class="service-pill-label" style="grid-column: 1 / -1;">
+              <input type="radio" name="service_choice" value="Full VIP Lounge Experience">
+              <span data-i18n="concierge.service_opt_package">Full VIP Lounge Experience</span>
+            </label>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 14px;" data-i18n="concierge.submit_whatsapp">
+          Confirm via WhatsApp
+        </button>
+      </form>
+
+      <!-- Single clean contact line without number duplication -->
+      <div class="modal-contact-line">
+        <span data-i18n="concierge.call_label">Direct Concierge Hotline:</span>
+        <a href="tel:01041212004">01041212004</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dependencies -->
+  <script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/split-type@0.3.4/umd/index.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Application Logic -->
+  <script src="js/i18n.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
